@@ -30,3 +30,17 @@ resources = {
     "coffee": 100,
 }
 
+def print_report():
+    print(f'Water: {resources["water"]}ml')
+    print(f'Milk: {resources["milk"]}ml')
+    print(f'Coffee: {resources["coffee"]}g')
+    if "money" in resources:
+        print(f'Money: ${resources["money"]}')
+
+def is_resources_sufficient(order_ingredients):
+    for item in order_ingredients:
+        if order_ingredients[item] >= resources[item]:
+            print(f"Sorry there is not enough {item}.")
+            return False
+        else:
+            return True
